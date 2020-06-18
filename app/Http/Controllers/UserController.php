@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\User;
 
 class UserController extends Controller
 {
@@ -27,6 +28,29 @@ class UserController extends Controller
 
         //DB::delete('DELETE FROM users');
 
-        return view('home');
+        /**
+         * Using Eloquent
+         */
+        //$user = new User();
+        //$user->name = 'Edu';
+        //$user->email = 'edu@gmail.com';
+
+        // bcrypt es para encriptar la password
+        //$user->password = bcrypt('pass');
+
+        // guarda el usuario en la base de datos
+        //$user->save();
+
+        // con eloquent se pueden hacer todas las operaciones sql
+        User::where('id', 2)->update(['name' => 'cristo']);
+
+        // para ver todos los usuarios
+        $userList = User::all();
+        return $userList;
+
+        // dd muestra todos los atributos con un formato legible
+        //dd($user);
+
+        //return view('home');
     }
 }
