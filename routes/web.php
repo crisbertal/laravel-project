@@ -20,3 +20,7 @@ Route::get('/', function () {
 // @ indica el metodo del controlador que se va a usar
 Route::get('/user', 'UserController@index'); 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
