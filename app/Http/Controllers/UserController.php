@@ -42,7 +42,18 @@ class UserController extends Controller
         //$user->save();
 
         // con eloquent se pueden hacer todas las operaciones sql
-        User::where('id', 2)->update(['name' => 'cristo']);
+        //User::where('id', 2)->update(['name' => 'cristo']);
+
+        /**
+         * Crear usuarios en una linea con encriptacion
+         */
+        $data = [
+            'name' => 'Elon',
+            'email' => 'elon@gmail.com',
+            'password' => bcrypt('pass'),
+        ];
+        // solo crea el objeto con los campos que esten dentro de fillable en el modelo (User en este caso)
+        //User::create($data);
 
         // para ver todos los usuarios
         $userList = User::all();
