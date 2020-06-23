@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,10 @@ Route::get('/', function () {
 // @ indica el metodo del controlador que se va a usar
 Route::get('/user', 'UserController@index'); 
 
+Route::post('/upload', function(Request $request) {
+    // solo funciona con el enctype
+    dd($request->image);
+});
 
 Auth::routes();
 
