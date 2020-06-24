@@ -8,6 +8,38 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function uploadAvatar(Request $request) {
+        // solo funciona con el enctype
+        //dd($request->image);
+
+        // almacena la imagen en el filesystem que queramos (se pueden ver en config/filesystems.php)
+        //$request->image->store('images', 'public');
+
+        // si se ha seleccionado una imagen
+        if ($request->hasFile('image')) {
+            // a traves del objeto imagen se pueden seleccionar para mostrar los datos que quieras.
+            // en este caso el nombre del fichero
+            $filename = $request->image->getClientOriginalName();
+
+            // guarda la imagen en el filesystem public con el nombre especificado en $filename
+            $request->image->storeAs('images', $filename, 'public');
+
+            // busca el user con el id 1 y cambia el valor del campo avatar en la BD
+            //User::find(1)->update(['avatar' => 'asdfsd']);
+
+            // En este caso se va a almacenar el nombre del fichero que se ha subido
+            User::find(1)->update(['avatar' => $filename]);
+        }
+        // una vez almacenada la imagen redirige la ruta hacia atras
+        return redirect()->back();
+
+        // muestra en la pantalla el texto
+        //return 'uploaded';
+
+        // sirve para asegurar que se ha seleccionado una foto (devuelve boolean)
+        //dd($request->hasFile('image'));
+    }
+
     public function index() {
         /**
          * RAW query

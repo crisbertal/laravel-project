@@ -22,17 +22,8 @@ Route::get('/', function () {
 // @ indica el metodo del controlador que se va a usar
 Route::get('/user', 'UserController@index'); 
 
-Route::post('/upload', function(Request $request) {
-    // solo funciona con el enctype
-    //dd($request->image);
-
-    // almacena la imagen en el filesystem que queramos (se pueden ver en config/filesystems.php)
-    $request->image->store('images', 'public');
-    return 'uploaded';
-    // sirve para asegurar que se ha seleccionado una foto (devuelve boolean)
-    //dd($request->hasFile('image'));
-});
-
+Route::post('/upload', 'UserController@uploadAvatar');
+    
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
