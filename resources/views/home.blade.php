@@ -17,6 +17,7 @@
                     You are logged in!
                 </div>
                 <div class="card-body">
+                    <!-- /upload se refiere a la funcion definida en web.php -->
                     <form action="/upload" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="file" name="image"/>
