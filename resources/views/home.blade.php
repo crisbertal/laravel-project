@@ -17,11 +17,12 @@
                     You are logged in!
                 </div>
                 <div class="card-body">
-                    @if (session()->has('message'))
-                        <div class="alert alert-success">{{ session()->get('message') }}</div>
-                    @elseif (session()->has('error'))
-                        <div class="alert alert-danger">{{ session()->get('error') }}</div>
-                    @endif
+                    
+                    <!-- Incluir fragmento de HTML desde otro fichero -->
+                    <!-- @include('layouts.flash') -->
+
+                    <!-- Haciendo uso de componentes de Laravel -->
+                    <x-alert/>
 
                     <!-- /upload se refiere a la funcion definida en web.php -->
                     <form action="/upload" method="post" enctype="multipart/form-data">
