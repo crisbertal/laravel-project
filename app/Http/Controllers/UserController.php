@@ -19,11 +19,21 @@ class UserController extends Controller
         // si se ha seleccionado una imagen
         if ($request->hasFile('image')) {
            User::uploadImage($request->image);
-           return redirect()->back();
+
+           // se usa el metodo flash de session para que solo se muestre una vez. Si se usara put()
+           // el mensaje se mostraria durante la vida de la session
+           // $request->session()->flash('message', 'Image Uploaded');
+
+            // este metodo es lo mismo que llamar a session con flash 
+            return redirect()->back()->with('message', 'Image Uploaded');
         }
 
+        // en caso de que no se haya subido la imagen
+        //$request->session()->flash('error', 'Image Not Uploaded');
+
         // una vez almacenada la imagen redirige la ruta hacia atras
-        return redirect()->back();
+        //return redirect()->back();
+        return redirect()->back()->with('error', 'Image Not Uploaded');
 
         // muestra en la pantalla el texto
         //return 'uploaded';

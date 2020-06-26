@@ -17,6 +17,12 @@
                     You are logged in!
                 </div>
                 <div class="card-body">
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">{{ session()->get('message') }}</div>
+                    @elseif (session()->has('error'))
+                        <div class="alert alert-danger">{{ session()->get('error') }}</div>
+                    @endif
+
                     <!-- /upload se refiere a la funcion definida en web.php -->
                     <form action="/upload" method="post" enctype="multipart/form-data">
                         @csrf
