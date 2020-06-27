@@ -23,6 +23,8 @@ Route::get('/todos', function() {
 // logica que hay dentro de las rutas a los controladores
 Route::get('/todos/create', 'TodoController@create');
 
+Route::post('/todos/create', 'TodoController@store');
+
 Route::get('/todos/edit', 'TodoController@edit');
 
 

@@ -15,4 +15,9 @@ class TodoController extends Controller
         // dentro de la carpeta todos en el fichero create
         return view('todos.edit');
     }
+
+    public function store(Request $request) {
+        // muestra los datos del objeto request
+        dd($request->all());
+    }
 }
