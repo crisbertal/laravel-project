@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -14,6 +13,18 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/todos', function() {
+    // dentro de la carpeta todos en el fichero index
+    return view('todos.index');
+});
+
+// con el fin de que este fichero no sea inmenso, se puede mover la 
+// logica que hay dentro de las rutas a los controladores
+Route::get('/todos/create', 'TodoController@create');
+
+Route::get('/todos/edit', 'TodoController@edit');
+
 
 Route::get('/', function () {
     return view('welcome');
