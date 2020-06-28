@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Todo;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -17,7 +18,8 @@ class TodoController extends Controller
     }
 
     public function store(Request $request) {
-        // muestra los datos del objeto request
-        dd($request->all());
+        Todo::create($request->all());
+        // deuelve hacia atras para que no se quede la pagina en blanco
+        return redirect()->back()->with('message', 'Todo Created Successfully');
     }
 }
