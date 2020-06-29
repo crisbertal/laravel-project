@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Validator;
 
 class TodoController extends Controller
 {
+
+    public function index() {
+        // get all the Todo models from database
+        $todos = Todo::all();
+        // devuelve el archivo blade index y le pasa el contenido de $todos
+        return view('todos.index')->with(['todos' => $todos]);
+    }
+
     public function create() {
         // dentro de la carpeta todos en el fichero create
         return view('todos.create');

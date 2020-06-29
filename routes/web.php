@@ -14,10 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/todos', function() {
-    // dentro de la carpeta todos en el fichero index
-    return view('todos.index');
-});
+Route::get('/todos', 'TodoController@index');
 
 // con el fin de que este fichero no sea inmenso, se puede mover la 
 // logica que hay dentro de las rutas a los controladores
