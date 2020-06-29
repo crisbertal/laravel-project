@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TodoCreateRequest;
 use App\Todo;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class TodoController extends Controller
@@ -18,7 +18,8 @@ class TodoController extends Controller
         return view('todos.edit');
     }
 
-    public function store(Request $request) {
+    // ahora se usa un request propio con sus reglas
+    public function store(TodoCreateRequest $request) {
         /*
             validacion de campos
         */
@@ -30,19 +31,19 @@ class TodoController extends Controller
         /*
             otra forma de validar
         */
-        $rules = [
-            'title' => 'required|max:255',
-        ];
+        //$rules = [
+            //'title' => 'required|max:255',
+        //];
 
-        $messages = [
-            'title.max' => 'Todo title should not be greater than 255 chars',
-        ];
+        //$messages = [
+            //'title.max' => 'Todo title should not be greater than 255 chars',
+        //];
 
-        $validator = Validator::make($request->all(), $rules, $messages);
+        //$validator = Validator::make($request->all(), $rules, $messages);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+        //if ($validator->fails()) {
+            //return redirect()->back()->withErrors($validator)->withInput();
+        //}
 
         Todo::create($request->all());
         // deuelve hacia atras para que no se quede la pagina en blanco
