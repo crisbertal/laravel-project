@@ -1,0 +1,23 @@
+## 7. Dynamic Route Parameter
+
+**HTML tags**
+
+* <div>: Defines a division or a section in HTML. Easily styled by class or id.
+* <div class="" >: attribute wich specifies one or more class names for an HTML element.
+* <a>: defines a hyperlink, used to link from one page to another
+* <a href="">: defines the route of the hyperlink 
+
+**TailwindCSS**
+
+* class="flex": creates a flexbox inside the tags to control how items grow and shrink
+* class="justify-center": align elements to the center
+* class="mx-5": equals to margin 1.25 rem in x axis
+* class="py-1": padding 0.25 rem in y axis
+* class="px-1": padding 0.25 rem in y axis
+* class="p-1": padding 0.25 rem in x and y axis
+* class="text-2xl": font-size of 1.5 rem
+* class="bg-blue-300": element background color (blue-300)
+* class="cursor-pointer": cursor style while hover. Change to pointing hand
+* class="rounded": border radius of an element with 0.25 rem
+* class="text-white": text color of an element (white)
+
