@@ -1,4 +1,38 @@
+## View
+
+**Laravel**
+
+Para pasar datos desde Eloquent a los view de blade se devuelve en la funcion llamada en la ruta 
+usando el helper view('folder.viewfile', ['varname' => 'Value']). Esto enviara el valor del varname 
+al fichero viewfile contenido en la carpeta folder.
+
+## Blade
+
+**Laravel**
+
+@extends: 
+@section: 
+
+## Eloquent
+
+**Laravel**
+
+* Model::find($valor): busca en la BD la fila cuya primary key es igual al valor de $valor para el modelo de datos Model.
+
 ## 7. Dynamic Route Parameter
+
+**Laravel**
+
+Dynamic Route consiste en insertar un elemento que no es fijo en la ruta, 
+como podria ser por ejemplo el valor de un parametro. En este proyecto, se 
+usara para editar las notas ya que cada nota tiene un id asignado, la ruta 
+editar debera contener el id de la nota para poder modificarla.
+
+Para indicar que el parametro tiene que ser requerido en la ruta se usa {}.
+Se puede observar en el fichero web.php que se ha insertado un parametro requerido 
+en la ruta de edicion de la nota.
+
+
 
 **HTML tags**
 
@@ -6,6 +40,7 @@
 * <div class="" >: attribute wich specifies one or more class names for an HTML element.
 * <a>: defines a hyperlink, used to link from one page to another
 * <a href="">: defines the route of the hyperlink 
+* <p>: defines a paragraph
 
 **TailwindCSS**
 

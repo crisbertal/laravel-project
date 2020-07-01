@@ -7,8 +7,9 @@
 </div>
 <ul class="my-5">
     @foreach ($todos as $todo)
-    <li>
-        {{ $todo->title }} 
+    <li class="flex justify-center py-2">
+       <p> {{ $todo->title }} </p>
+    <a href="{{'/todos/' . $todo->id . '/edit'}}" class="mx-5 p-1 bg-orange-400 cursor-pointer rounded text-white">Edit</a>
     </li>
     @endforeach
 </ul>
