@@ -25,10 +25,11 @@ class TodoController extends Controller
      * Permite editar la nota. Se pasa el valor del id de la nota
      * para poder recogerla de la BD
      */
-    public function edit($id) {
+    public function edit(Todo $todo) {
         // Busca en la BD correspondiente a la entidad Todo el valor
         // de la primary key
-        $todo = Todo::find($id);
+        //$todo = Todo::find($id);
+
         // dentro de la carpeta todos en el fichero create. 
         return view('todos.edit', ['todo' => $todo]);
     }

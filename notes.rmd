@@ -2,6 +2,9 @@
 
 **Laravel**
 
+{{}} se usa para mostrar datos pasados al fichero blade desde la ruta (como por ejemplo los valores pasados 
+desde Eloquent)
+
 Para pasar datos desde Eloquent a los view de blade se devuelve en la funcion llamada en la ruta 
 usando el helper view('folder.viewfile', ['varname' => 'Value']). Esto enviara el valor del varname 
 al fichero viewfile contenido en la carpeta folder.
@@ -32,7 +35,8 @@ Para indicar que el parametro tiene que ser requerido en la ruta se usa {}.
 Se puede observar en el fichero web.php que se ha insertado un parametro requerido 
 en la ruta de edicion de la nota.
 
-
+Al pasar el parametro en la ruta usando {} (que es lo que se llama *Dynamic Route parameter*), cuando se llama al metodo en el controlador
+se puede recoger ese valor como parametro del metodo (vease editar ToDo en el proyecto)
 
 **HTML tags**
 
@@ -56,3 +60,29 @@ en la ruta de edicion de la nota.
 * class="rounded": border radius of an element with 0.25 rem
 * class="text-white": text color of an element (white)
 
+## 8. Route model binding
+
+**Laravel**
+
+* Implicit binding: ruta dinamica '/todos/{id}/edit' se pasa el valor del id. en el controlador
+se puede recoger ese valor como function edit($id). Laravel puede ir mas alla, si se especifica el 
+modelo en el metodo, Laravel injectara el objeto correspondiente a ese id si se escribe asi:
+function edit(Todo $id) [nota, el nombre del parametro debe ser igual al que hay en la ruta]. 
+Ahora laravel ha recogido de la BD la fila dentro de la tabla Todo cuyo id se corresponde con el 
+valor pasado. Para no confundir, se va a cambiar la ruta a todo. De esta forma, nos ahorramos la linea de
+Todo::find
+
+* Key personalizadas: con Implicit binding, si no se especifica nada, siempre se pasara en la ruta el id del
+objeto. Si se quiere pasar otro dato en la ruta se puede hacer asi {todo:title} (si se quiere pasar el titulo)
+
+* Key personalizada por defecto: en caso de que se quiera cambiar el valor del implicit binding por defecto, se puede 
+hacer desde la clase del model Todo, haciendo que el metodo getRouteKeyName() devuelva el atributo que queramos (por ejemplo title)
+(el metodo lo tienes que crear tu mismo porque no te viene en la plantilla del modelo)
+
+**HTML**
+<input value="">: especifica el valor contenido dentro del input
+
+## 9. Named routes
+
+**Laravel**
+Route::patch: 
