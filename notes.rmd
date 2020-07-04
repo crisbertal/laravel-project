@@ -79,10 +79,28 @@ objeto. Si se quiere pasar otro dato en la ruta se puede hacer asi {todo:title} 
 hacer desde la clase del model Todo, haciendo que el metodo getRouteKeyName() devuelva el atributo que queramos (por ejemplo title)
 (el metodo lo tienes que crear tu mismo porque no te viene en la plantilla del modelo)
 
+[CREO QUE NO TERMINO DE ENTENDERLO]
+
 **HTML**
 <input value="">: especifica el valor contenido dentro del input
 
 ## 9. Named routes
 
 **Laravel**
-Route::patch: 
+
+*@csrf: sirve como metodo de proteccion ante un ataque cross-site request forgery. Protege ante que un usuario que no 
+se corresponde con el autentificado haga acciones en la web.
+
+*@method(patch): los form de HTML solo tienen como action GET y POST. Si se quiere usar otro metodo, se debe usar este codigo
+
+*Route::patch: al igual que PUT se usan para modificar valores en el servidor. A diferencia de put, patch se usa para cambiar 
+un solo valor del modelo de datos del servidor (si hay que cambiar mas datos de la fila se deberia usar PUT, aunque tambien se 
+puede usar PUT para hacer cambios en un solo atributo).
+
+*Route::get('/nombre/cosa')->name('alias'): a una ruta se le puede poner un alias para identificarla luego en el codigo.
+Para hacer referencia a la ruta en blade se usa {{ route('alias', $modelo->valor) }}. Esto llamara a la ruta alias y pasara 
+el parametro indicado a la ruta (por ejemplo, si alias es '/todo/{valor}/cosa').
+
+*redirect(route('nombreruta')): redirecciona a la ruta indicada.
+
+[PARA CUANDO VUELVAS, REDACTA LO QUE HAS HECHO EN EL METODO UPDATE DEL TODO CONTROLLER] [NO TERMINO DE ENTENDERLO]

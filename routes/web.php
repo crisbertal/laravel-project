@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/todos', 'TodoController@index');
+Route::get('/todos', 'TodoController@index')->name('todo.index');
 
 // con el fin de que este fichero no sea inmenso, se puede mover la 
 // logica que hay dentro de las rutas a los controladores
@@ -24,7 +24,8 @@ Route::post('/todos/create', 'TodoController@store');
 
 Route::get('/todos/{todo}/edit', 'TodoController@edit');
 
-Route::patch('/todos/{todo}/update', 'TodoController@update');
+// Esta ruta tiene un nombre asociado
+Route::patch('/todos/{todo}/update', 'TodoController@update')->name('todo.update');
 
 
 Route::get('/', function () {
