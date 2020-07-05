@@ -104,3 +104,10 @@ el parametro indicado a la ruta (por ejemplo, si alias es '/todo/{valor}/cosa').
 *redirect(route('nombreruta')): redirecciona a la ruta indicada.
 
 [PARA CUANDO VUELVAS, REDACTA LO QUE HAS HECHO EN EL METODO UPDATE DEL TODO CONTROLLER] [NO TERMINO DE ENTENDERLO]
+
+## 10. Update Validation
+
+*cdnjs: web de descarga de la libreria de font-awesome para insertar iconos en el HTML.
+
+**HTML**
+span: Sirve para aplicar estilo al texto o agrupar elementos en la misma línea.
