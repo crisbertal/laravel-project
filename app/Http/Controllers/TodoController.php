@@ -12,7 +12,11 @@ class TodoController extends Controller
 
     public function index() {
         // get all the Todo models from database
-        $todos = Todo::all();
+        //$todos = Todo::all();
+
+        // muestra todos los valores ordenador por el valor especificado. get() es necesario
+        // para que se haga la consulta
+        $todos = Todo::orderBy('completed', 'asc')->get();
         // devuelve el archivo blade index y le pasa el contenido de $todos
         return view('todos.index')->with(['todos' => $todos]);
     }
