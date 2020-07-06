@@ -3,7 +3,9 @@
 @section('content')
 <div class="flex justify-center border-b pb-3">
     <h1 class="text-2xl">All ToDos</h1>
-    <a href="/todos/create" class="mx-5 p-1 bg-blue-500 cursor-pointer rounded text-white">Create new</a>
+    <a href="/todos/create" class="mx-5 py-2 text-blue-500 cursor-pointer rounded text-white">
+        <span class="fas fa-plus-circle"/>
+    </a>
 </div>
 <ul class="my-5">
     <x-alert />
