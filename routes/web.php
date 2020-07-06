@@ -27,6 +27,8 @@ Route::get('/todos/{todo}/edit', 'TodoController@edit');
 // Esta ruta tiene un nombre asociado
 Route::patch('/todos/{todo}/update', 'TodoController@update')->name('todo.update');
 
+Route::put('/todos/{todo}/complete', 'TodoController@complete')->name('todo.complete');
+
 
 Route::get('/', function () {
     return view('welcome');

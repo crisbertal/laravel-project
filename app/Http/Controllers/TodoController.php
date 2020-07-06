@@ -77,4 +77,9 @@ class TodoController extends Controller
         // en el redirect se puede indicar la ruta a la que se quiera que nos envie
         return redirect(route('todo.index'))->with('message', 'Todo Updated');
     }
+
+    public function complete(Todo $todo) {
+        $todo->update(['completed' => true]);
+        return redirect(route('todo.index'))->with('message', 'Todo Completed');
+    }
 }
