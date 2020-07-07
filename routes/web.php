@@ -31,6 +31,8 @@ Route::put('/todos/{todo}/complete', 'TodoController@complete')->name('todo.comp
 
 Route::put('/todos/{todo}/incomplete', 'TodoController@incomplete')->name('todo.incomplete');
 
+Route::delete('/todos/{todo}/delete', 'TodoController@delete')->name('todo.delete');
+
 
 Route::get('/', function () {
     return view('welcome');

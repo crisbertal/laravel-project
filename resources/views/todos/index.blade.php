@@ -21,6 +21,22 @@
         @endif
        <div>
             <a href="{{'/todos/' . $todo->id . '/edit'}}" class="py-1 cursor-pointer rounded" > <span class="fas fa-edit text-orange-400 px-2"/></a>
+
+            <span class="fas fa-trash text-red-400 cursor-pointer px-2" onclick="
+
+                            event.preventDefault();
+
+                            if(confirm('Are you really want to delete?')) {
+                                document.getElementById('form-delete-{{$todo->id}}').submit();
+                            }
+                            
+                            "/>
+            <!-- Este formulario esta oculto -->
+            <form style="display: none" id="{{'form-delete-'.$todo->id}}" method="post" action="{{ route('todo.delete', $todo->id) }}">
+                @csrf
+                @method('delete')
+            </form>
+
        </div>
     </li>
     @endforeach
