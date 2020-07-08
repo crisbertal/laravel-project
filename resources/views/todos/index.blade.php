@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex justify-center border-b pb-3">
     <h1 class="text-2xl">All ToDos</h1>
-    <a href="/todos/create" class="mx-5 py-2 text-blue-500 cursor-pointer rounded text-white">
+<a href="{{ route("todos.create") }}" class="mx-5 py-2 text-blue-500 cursor-pointer rounded text-white">
         <span class="fas fa-plus-circle"/>
     </a>
 </div>
@@ -32,7 +32,7 @@
                             
                             "/>
             <!-- Este formulario esta oculto -->
-            <form style="display: none" id="{{'form-delete-'.$todo->id}}" method="post" action="{{ route('todo.delete', $todo->id) }}">
+            <form style="display: none" id="{{'form-delete-'.$todo->id}}" method="post" action="{{ route('todos.destroy', $todo->id) }}">
                 @csrf
                 @method('delete')
             </form>

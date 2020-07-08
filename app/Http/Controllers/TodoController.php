@@ -75,21 +75,21 @@ class TodoController extends Controller
         // haciendo uso del implicit binding se ha cogido el todo con el id que se ha pasado en la ruta
         $todo->update(['title' => $request->title]);
         // en el redirect se puede indicar la ruta a la que se quiera que nos envie
-        return redirect(route('todo.index'))->with('message', 'Todo Updated');
+        return redirect(route('todos.index'))->with('message', 'Todo Updated');
     }
 
     public function complete(Todo $todo) {
         $todo->update(['completed' => true]);
-        return redirect(route('todo.index'))->with('message', 'Todo Completed');
+        return redirect(route('todos.index'))->with('message', 'Todo Completed');
     }
 
     public function incomplete(Todo $todo) {
         $todo->update(['completed' => false]);
-        return redirect(route('todo.index'))->with('message', 'Todo changed to Incompleted');
+        return redirect(route('todos.index'))->with('message', 'Todo changed to Incompleted');
     }
 
-    public function delete(Todo $todo) {
+    public function destroy(Todo $todo) {
         $todo->delete();
-        return redirect(route('todo.index'))->with('message', 'Todo deleted');
+        return redirect(route('todos.index'))->with('message', 'Todo deleted');
     }
 }
