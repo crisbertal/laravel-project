@@ -87,9 +87,11 @@ class User extends Authenticatable
     }
 
     /**
-     * Establece la relacion uno a muchos con el modelo Todo
+     * Establece la relacion uno a muchos con el modelo Todo. se nombra User has many "todos" por lo que se usa 
+     * la ultima palabra de la frase
      */
     public function todos() {
+        // dentro de hasMany se especifica el modelo con el que se quiere crear la relacion
         return $this->hasMany(Todo::class);
     }
 

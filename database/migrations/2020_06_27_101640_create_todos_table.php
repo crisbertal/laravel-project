@@ -16,6 +16,10 @@ class CreateTodosTable extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            // necesaria para la relacion hasMany. tiene que usar el 
+            // mismo nombre del atributo de la BD
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             // pone por defecto el valor a falso
             $table->boolean('completed')->default(false);
             $table->timestamps();
