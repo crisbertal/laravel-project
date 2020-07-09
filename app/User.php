@@ -86,4 +86,11 @@ class User extends Authenticatable
         }
     }
 
+    /**
+     * Establece la relacion uno a muchos con el modelo Todo
+     */
+    public function todos() {
+        return $this->hasMany(Todo::class);
+    }
+
 }
