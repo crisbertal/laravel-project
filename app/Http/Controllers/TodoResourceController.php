@@ -23,7 +23,7 @@ class TodoResourceController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**

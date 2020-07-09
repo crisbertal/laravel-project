@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Validator;
 
 class TodoController extends Controller
 {
+    /**
+     * Esto es otra forma de usar el middleware
+     */
+    //public function __construct()
+    //{
+        // si quieres que se aplique a todo menos a una ruta en concreto
+        //$this->middleware('auth')->except('index');
+    //}
 
     public function index() {
         // get all the Todo models from database
