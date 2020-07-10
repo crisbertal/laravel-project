@@ -25,7 +25,7 @@ class TodoController extends Controller
         // muestra todos los valores ordenador por el valor especificado. get() es necesario
         // para que se haga la consulta
         // solo muestra aquellos todos del usuario
-        $todos = auth()->user()->todos->sortBy('completed')->get();
+        $todos = auth()->user()->todos->sortBy('completed');
         // devuelve el archivo blade index y le pasa el contenido de $todos
         return view('todos.index')->with(['todos' => $todos]);
     }
