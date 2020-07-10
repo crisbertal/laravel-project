@@ -92,7 +92,7 @@ class User extends Authenticatable
      */
     public function todos() {
         // dentro de hasMany se especifica el modelo con el que se quiere crear la relacion
-        return $this->hasMany(Todo::class);
+        return $this->hasMany(Todo::class)->orderBy('completed');
     }
 
 }
