@@ -16,6 +16,8 @@ class CreateTodosTable extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            // como varchar pero puedes meter mas caracteres
+            $table->text('description');
             // necesaria para la relacion hasMany. tiene que usar el 
             // mismo nombre del atributo de la BD
             $table->unsignedBigInteger('user_id');
