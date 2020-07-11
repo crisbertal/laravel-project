@@ -17,7 +17,9 @@
         @if ($todo->completed)
             <p class="line-through"> {{ $todo->title }} </p>
         @else
-            <p> {{ $todo->title }} </p>
+            <a class="cursor-pointer" href="{{route('todos.show', $todo->id)}}">
+                <p> {{ $todo->title }} </p>
+            </a>
         @endif
        <div>
             <a href="{{'/todos/' . $todo->id . '/edit'}}" class="py-1 cursor-pointer rounded" > <span class="fas fa-edit text-orange-400 px-2"/></a>

@@ -48,6 +48,11 @@ class TodoController extends Controller
         return view('todos.edit', ['todo' => $todo]);
     }
 
+    public function show(Todo $todo) {
+        return view('todos.show', ['todo' => $todo]); 
+    }
+
+
     // ahora se usa un request propio con sus reglas
     public function store(TodoCreateRequest $request) {
         auth()->user()->todos()->create($request->all());
@@ -57,7 +62,7 @@ class TodoController extends Controller
 
     public function update(TodoCreateRequest $request, Todo $todo) {
         // haciendo uso del implicit binding se ha cogido el todo con el id que se ha pasado en la ruta
-        $todo->update(['title' => $request->title]);
+        $todo->update(['title' => $request->title, 'description' => $request->description,]);
         // en el redirect se puede indicar la ruta a la que se quiera que nos envie
         return redirect(route('todos.index'))->with('message', 'Todo Updated');
     }
