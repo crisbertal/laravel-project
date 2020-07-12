@@ -17,6 +17,7 @@
             <span class="px-3 py-1 fas fa-plus"/>
         </div>
 
+
         <input type="text" name="step" class="p-2 border rounded" placeholder="Steps"/>
 
         <div class="py-1">
@@ -24,6 +25,8 @@
         </div>
     </form>
 
-<a href=" {{ route('todos.index') }} " class="m-5 p-1 bg-blue-300 cursor-pointer rounded text-white">
+    @livewire('counter')
+
+    <a href=" {{ route('todos.index') }} " class="m-5 p-1 bg-blue-300 cursor-pointer rounded text-white">
         Back</a>
 @endsection
