@@ -55,8 +55,18 @@ class TodoController extends Controller
 
     // ahora se usa un request propio con sus reglas
     public function store(TodoCreateRequest $request) {
-        dd($request->all());
-        auth()->user()->todos()->create($request->all());
+        // crea el objeto todo
+        $todo = auth()->user()->todos()->create($request->all());
+
+        // chequea si se han insertando steps
+        if($request->steps) {
+            // ahora se crean los steps correspondientes al todo
+            foreach ($request->steps as $step) {
+                // al llamar a steps() se establece la relacion hasMany
+                $todo->steps()->create(['name' => $step]);
+            }
+        }
+
         // deuelve hacia atras para que no se quede la pagina en blanco
         return redirect(route('todos.index'))->with('message', 'Todo Created Successfully');
     }

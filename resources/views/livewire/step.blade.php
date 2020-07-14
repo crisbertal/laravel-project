@@ -8,7 +8,7 @@
     @foreach ($steps as $step)
         <div class="flex flex-row justify-center py-2">
             <!-- Para enviar un array de los inputs, se pone [] al final de la variable name. La variable se tiene que llamar igual -->
-            <input type="text" name="step[]" class="p-2 border rounded" placeholder="{{'Describe step ' . ($step)}}">
+            <input type="text" name="steps[]" class="p-2 border rounded" placeholder="{{'Describe step ' . ($step)}}">
             <span wire:click="remove({{$loop->index}})" class="fas fa-times text-red-400 p-2" />
         </div>
     @endforeach
