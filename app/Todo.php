@@ -8,5 +8,9 @@ class Todo extends Model
 {
     // se tiene que hacer esto para permitir la entrada de datos por eloquent
     protected $fillable = ['title', 'completed', 'user_id', 'description'];
+
+    public function steps() {
+        return $this->hasMany(Step::class);
+    }
     
 }
