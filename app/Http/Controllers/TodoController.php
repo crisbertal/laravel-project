@@ -89,6 +89,9 @@ class TodoController extends Controller
     }
 
     public function destroy(Todo $todo) {
+        // en caso de que haya relacion entre tablas, se debe borrar asi (aunque tambien he visto 
+        // que puedes indicar que se borre en cascada)
+        $todo->steps->each->delete();
         $todo->delete();
         return redirect(route('todos.index'))->with('message', 'Todo deleted');
     }
