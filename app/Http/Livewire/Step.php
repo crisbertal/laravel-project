@@ -10,8 +10,8 @@ class Step extends Component
 
     public function increment()
     {
-        // agrega al array el total de elementos que contiene +1 
-        $this->steps[] = count($this->steps) + 1;
+        // agrega al array el total de elementos que contiene 
+        $this->steps[] = count($this->steps);
     }
 
     public function remove($index)
