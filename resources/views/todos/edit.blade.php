@@ -13,6 +13,11 @@
         <div class="p-1">
             <textarea name="description" class="p-2 border rounded">{{ $todo->description }}</textarea>
         </div>
+
+        <div>
+            @livewire('edit-step', ['steps' => $todo->steps])
+        </div>
+
         <div class="p-1">
             <input type="submit" value="Update" class="p-2 border rounded"/>
         </div>

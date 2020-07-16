@@ -74,6 +74,13 @@ class TodoController extends Controller
     public function update(TodoCreateRequest $request, Todo $todo) {
         // haciendo uso del implicit binding se ha cogido el todo con el id que se ha pasado en la ruta
         $todo->update(['title' => $request->title, 'description' => $request->description,]);
+
+        // por si se editan los pasos
+        if($request->step) {
+            foreach ($request->steps as $step) {
+                $step->update(['name' => $step]);
+            }
+        }
         // en el redirect se puede indicar la ruta a la que se quiera que nos envie
         return redirect(route('todos.index'))->with('message', 'Todo Updated');
     }
